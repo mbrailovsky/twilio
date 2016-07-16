@@ -57,5 +57,9 @@ td{
   border-bottom: solid thin $light-grey;
 }
 
+div:empty {
+  display: none;
+}
+
 
 
