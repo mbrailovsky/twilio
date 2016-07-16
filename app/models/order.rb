@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+
   has_many :order_items
   before_save :update_total
 
@@ -9,4 +10,5 @@ class Order < ApplicationRecord
   def update_total
     self[:total] = total
   end
+
 end

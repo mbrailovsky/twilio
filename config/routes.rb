@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :order_items
+  resources :orders
   get 'order_items/create'
 
   get 'order_items/update'
