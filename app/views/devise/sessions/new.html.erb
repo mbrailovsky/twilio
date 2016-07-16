@@ -8,13 +8,13 @@
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", :id => 'login_password_field' %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <div class="row">
-        <div class="col-xs-1 no-padding-right"><%= f.check_box :remember_me %></div>
+        <div class="col-xs-1 no-padding-right"><%= f.check_box :remember_me,  :id => 'login_remember_me_checkbox' %></div>
         <div class="col-xs-11 padding-left-10"><%= f.label :remember_me %></div>
         </div>
     </div>
@@ -22,7 +22,7 @@
 
 
   <div class="actions ">
-    <%=  f.submit "Log in", :class => 'btn-primary' %>
+    <%=  f.submit "Log in", :class => 'btn-primary' , :id => 'login_submit_button' %>
   </div>
     <hr>
 <% end %>
