@@ -24,5 +24,6 @@
 coverage
 .idea
 *.iml
+*.swp
 vendor/
 public/system
