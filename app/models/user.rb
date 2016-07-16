@@ -75,7 +75,7 @@ class User < ApplicationRecord
 
   def email_format
     if !email.blank?
-      email_match = /^[\w]+@[\w]+\.[\w]+$/.match(email_match)
+      email_match = /^[\w]+@[\w]+\.[\w]+$/.match(email)
       if email_match.nil?
         errors.add :email, "Must contain one '@' and one period"
       end
