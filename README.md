@@ -1,24 +1,24 @@
-# README
+# Shopping Demo Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Relevant Gems to address Shopping Demo operational needs
+* Ruby 2.3.1 | Rails 5.0.0
+* PG (PostgreSQL support with ActiveRecord)
+* Devise (Authentication)
+* BCrypt (Encryption)
 
-* Ruby version
 
-* System dependencies
+### Devise
+https://github.com/plataformatec/devise
 
-* Configuration
+### Relevant Gems to address Shopping Demo testing needs
+* SimpleCov
+* RuboCop
 
-* Database creation
+### SimpleCov Usage
+TODO: Fill In
 
-* Database initialization
+### RuboCop
+TODO: Fill In
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+test integration
