@@ -34,7 +34,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+              <li class="active"><%= link_to 'Home', catalog_items_path %><span class="sr-only">(current)</span></a></li>
 
             </ul>
 
@@ -53,6 +53,13 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <%= yield %>
+    <main>
+      <div class="content-container">
+        <div class="text-container">
+
+          <%= yield %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
