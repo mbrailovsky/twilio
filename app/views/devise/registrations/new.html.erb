@@ -4,8 +4,58 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :login_id %><br />
+    <%= f.text_field :login_id, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_address %><br />
+    <%= f.text_field :street_address, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cc_number %><br />
+    <%= f.text_field :cc_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cc_exp_date %><br />
+    <%= f.text_field :cc_exp_date, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cvv %><br />
+    <%= f.text_field :cvv, autofocus: true %>
   </div>
 
   <div class="field">
