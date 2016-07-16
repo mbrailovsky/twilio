@@ -13,3 +13,21 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "variables";
+@import "mixins";
+@import "header";
+@import "controls";
+@import "site";
+@import "footer";
+
+
+
+.main-container{
+  margin: 0px 60px;
+}
+
+@media (max-width: $viewport-xs) {
+  .main-container{ margin: 0px 5px;}
+
+}
