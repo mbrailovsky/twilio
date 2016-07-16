@@ -18,6 +18,7 @@
       <tr>
         <td><%= catalog_item.name %></td>
         <td><%= catalog_item.description %></td>
+        <td><%= image_tag catalog_item.image.url(:thumb)%></td>
         <td><%= catalog_item.price %></td>
         <td><%= link_to 'Show', catalog_item %></td>
         <td><%= link_to 'Edit', edit_catalog_item_path(catalog_item) %></td>
