@@ -26,41 +26,39 @@ class User < ApplicationRecord
   end
 
   def fields_presence
-    if !login_id.blank?
+    if login_id.blank?
       errors.add :login_id, "is required"
     end
-    if !first_name.blank?
+    if first_name.blank?
       errors.add :first_name, "is required"
     end
-    if !last_name.blank?
+    if last_name.blank?
       errors.add :last_name, "is required"
     end
-    if !street_address.blank?
+    if street_address.blank?
       errors.add :street_address, "is required"
     end
-    if !city.blank?
+    if city.blank?
       errors.add :city, "is required"
     end
-    if !zip.blank?
+    if zip.blank?
       errors.add :zip, "is required"
     end
-    if !cc_number.blank?
+    if cc_number.blank?
       errors.add :cc_number, "is required"
     end
-    if !cc_exp_date.blank?
+    if cc_exp_date.blank?
       errors.add :cc_exp_date, "is required"
     end
-    if !cvv.blank?
+    if cvv.blank?
       errors.add :cvv, "is required"
-    end
-    if errors.size > 0
-      return false
     end
   end
 
   def login_id_unique
     if User.count > 0
-      if User.where("login_id = ?", login_id)
+      users = User.where("login_id = ?", login_id)
+      if users.size > 0
         errors.add :login_id, "already taken"
       end
     end
@@ -68,7 +66,8 @@ class User < ApplicationRecord
 
   def email_unique
     if User.count > 0
-      if User.where("email = ?", email)
+      users = User.where("email = ?", email)
+      if users.size > 0
         errors.add :email, "already taken"
       end
     end
@@ -76,7 +75,8 @@ class User < ApplicationRecord
 
   def email_format
     if !email.blank?
-      if !email.match(/^[\w]+@[\w]+\.[\w]+$/)
+      email_match = /^[\w]+@[\w]+\.[\w]+$/.match(email_match)
+      if email_match.nil?
         errors.add :email, "Must contain one '@' and one period"
       end
     end
@@ -84,7 +84,8 @@ class User < ApplicationRecord
 
   def cc_exp_date_format
     if !cc_exp_date.blank?
-      if !cc_exp_date.match(/^\d{2}\/\d{4}$/)
+      cc_exp_date_match = /^\d{2}\/\d{4}$/.match(cc_exp_date)
+      if cc_exp_date_match.nil?
          errors.add :cc_exp_date, "Must be in format of MM/YYYY"
       end
     end
@@ -92,15 +93,18 @@ class User < ApplicationRecord
 
   def cc_number_format
     if !cc_number.blank?
-      if !cc_number.match(/^\d{16}$/)
+      cc_number_match = /^\d{16}$/.match(cc_number.to_s)
+      if cc_number_match.nil?
          errors.add :cc_number, "Must be have 16 digits"
       end
     end
   end
 
   def cvv_format
+    #logger.error("cvv = #{cvv}")
     if !cvv.blank?
-      if !cvv.match(/^\d{3}$/)
+      cvv_match = /^\d{3}$/.match(cvv.to_s)
+      if cvv_match.nil?
          errors.add :cvv, "Must be have 3 digits"
       end
     end
