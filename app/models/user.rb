@@ -9,7 +9,7 @@ class User < ApplicationRecord
 #  validates :email, :cc_number, :cc_exp_date, :presence => true
 
   validate :fields_presence
-  validate :login_id_unique, :email_unique
+  validate :login_id_unique
   validate :email_format
   validate :cc_exp_date_format
   validate :password_complexity
@@ -60,15 +60,6 @@ class User < ApplicationRecord
       users = User.where("login_id = ?", login_id)
       if users.size > 0
         errors.add :login_id, "already taken"
-      end
-    end
-  end
-
-  def email_unique
-    if User.count > 0
-      users = User.where("email = ?", email)
-      if users.size > 0
-        errors.add :email, "already taken"
       end
     end
   end
