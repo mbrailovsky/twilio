@@ -1,4 +1,5 @@
 class CatalogItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_catalog_item, only: [:show, :edit, :update, :destroy]
 
   # GET /catalog_items
