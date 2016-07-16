@@ -77,6 +77,13 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: shopping_demo
+  host: devdb01.cqbufnsbkdwl.us-east-1.rds.amazonaws.com
+  username: shopping_demo_dba
+  password: <%= ENV['SHOPPING-DEMO_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: shopping_demo
