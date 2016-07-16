@@ -4,6 +4,13 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <% if @user.errors.full_messages.any? %>
+    <% @user.errors.full_messages.each do |error_message| %>
+      <%= error_message %><br/>
+      <%#= error_message if @user.errors.full_messages.first == error_message %> <br />
+    <% end %>
+  <% end %>
+
   <div class="field">
     <%= f.label :login_id %><br />
     <%= f.text_field :login_id, autofocus: true %>
