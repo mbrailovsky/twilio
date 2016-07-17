@@ -19,4 +19,15 @@ catalogItems = CatalogItem.create([
                                       {id: 10, name: 'Item10', price: 10000, image: File.open("#{imagesDir}/10_tray.jpg")},
                                   ])
 
-User.create! :email => 'admin@example.com', :password => 'supersecret', :password_confirmation => 'supersecret'
+User.create! :email => 'admin@example.com', :password => 'supersecret', :password_confirmation => 'supersecret',
+	:login_id => 'admin', :first_name => 'Admin', :last_name => 'Admin', :street_address => '2600 Tower Oaks Blvd',
+        :city => 'Rockville', :state => 'MD', :zip => '20852', :cc_number => '1111222233334444', :cc_exp_date => '01/2090',
+        :cvv => '111', :security_answer => 'admin answer'
+
+securityQuestions = SecurityQuestion.create([
+                                      {id: 1, question: 'What is the name of your first pet?'},
+                                      {id: 2, question: 'Where did you go to high school?'},
+                                      {id: 3, question: 'Which city were you born?'},
+                                      {id: 4, question: 'Which is your favority city to visit?'},
+                                      {id: 5, question: 'What is your favorite food?'}
+                                  ])

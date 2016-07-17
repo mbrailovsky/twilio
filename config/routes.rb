@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :security_questions
   resources :order_items
   resources :orders
   get 'order_items/create'

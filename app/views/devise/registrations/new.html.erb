@@ -74,6 +74,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Security Question" %><br />
+    <%= f.collection_select(:security_question, SecurityQuestion.all, :id, :question, include_blank: false) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :security_answer %><br />
+    <%= f.text_field :security_answer, autocomplete: "off" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" ,:class => 'btn-success' %>
   </div>

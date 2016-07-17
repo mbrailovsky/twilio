@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @security_question.question %>
+</p>
+
+<%= link_to 'Edit', edit_security_question_path(@security_question) %> |
+<%= link_to 'Back', security_questions_path %>

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :security_question
+
 #  validates :cvv, length: { is: 3 }
 #  validates :cc_number, length: { is: 16 }
 #  validates :email, :cc_number, :cc_exp_date, :presence => true
@@ -52,6 +54,9 @@ class User < ApplicationRecord
     end
     if cvv.blank?
       errors.add :cvv, "is required"
+    end
+    if security_answer.blank?
+      errors.add :security_answer, "is required"
     end
   end
 
