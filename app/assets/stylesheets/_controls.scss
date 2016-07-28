@@ -1,33 +1,21 @@
-.btn-primary{
-  background-color: $lighter-blue;
-}
-
-.btn-success{
-  background-color: $primary-green;
-}
-
-.btn-info{
-  background-color: $lightest-blue;
-}
-
-.btn-warning{
-  background-color: $primary-yellow;
-}
-
-.field{
-  input{
-    display: block;
-    width: 100%;
-  }
-
+input{
+  display: block;
+  width: 100%;
+  padding: 5px;
   margin-bottom: 12px;
 }
 
-.actions{
-  input{
-    display: block;
-    width: 100%;
-  }
+textarea{
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+
+.block-button{
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
 }
 
 .padding-left-10{
@@ -57,9 +45,11 @@ td{
   border-bottom: solid thin $light-grey;
 }
 
-div:empty {
+.alert:empty {
   display: none;
 }
+
+
 
 
 
