@@ -32,10 +32,9 @@ development:
 test:
   <<: *default
   database: shopping_demo
+  host: devdb01.cqbufnsbkdwl.us-east-1.rds.amazonaws.com
   username: shopping_demo_dba
-  password: p2ssw0rd
-  host: localhost
-  port: 5432
+  password: <%= ENV['SHOPPING-DEMO_DATABASE_PASSWORD'] %>
 
 staging:
   <<: *default
