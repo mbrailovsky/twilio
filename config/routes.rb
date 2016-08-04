@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/health_check', to: redirect('/health_check.html')
   resources :security_questions
   resources :order_items
   resources :orders
