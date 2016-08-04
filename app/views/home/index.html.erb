@@ -1,41 +1,35 @@
 <h1>Catalog</h1>
 <hr>
 
-<%= form_for(@order) do |f| %>
-    <table class="table-hover">
-      <thead>
+<table class="table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Thumbnail</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @catalog_items.each do |catalog_item| %>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Thumbnail</th>
-        <th>Price</th>
-        <th>Quantity</th>
+        <td><%= catalog_item.name %></td>
+        <td><%= catalog_item.description %></td>
+        <td><%= image_tag catalog_item.image.url(:thumb) %></td>
+        <td><%= number_to_currency catalog_item.price_in_dollars %></td>
+        <td><input type="number" name="quantity" min="1" max="99"></td>
+
       </tr>
-      </thead>
-
-      <tbody>
-      <% f.fields_for :order_items do |oi| %>
-          <tr>
-            <td><%= order_item.catalog_item.name %></td>
-            <td><%= order_item.catalog_item.description %></td>
-            <td><%= image_tag order_item.catalog_item.image.url(:thumb) %></td>
-            <td><%= number_to_currency order_item.catalog_item.price_in_dollars %></td>
-
-            <%= form_for(order_item) do |oi| %>
-                <td><%= oi.number_field :quantity, min: 0, max: 99 %></td>
-            <% end %>
-          </tr>
-      <% end %>
-      </tbody>
+  <% end %>
+  </tbody>
 
 
-    </table>
-    <br>
-    <div class="actions pull-right">
-      <%= button_tag(type: 'submit', class: 'btn-primary btn-add-cart') do %>
-          Add to Cart
-      <% end %>
-    </div>
-    <br>
-    <br>
-<% end %>
+</table>
+<br>
+<div class="actions pull-right">
+  <button class="btn-primary btn-add-cart">Add to Cart</button>
+</div>
+<br>
+<br>
