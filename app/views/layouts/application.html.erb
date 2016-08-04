@@ -41,7 +41,9 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+            <%= link_to cart_path do %>
+                <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+            <% end %>
           </li>
 
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
