@@ -1,4 +1,4 @@
-<h2>Forgot your password?</h2>
+<h1>Forgot your password?</h1>
 
 <hr>
 
@@ -6,7 +6,7 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, 'for'=> 'forgot_pass_input'%><br />
     <%= f.email_field :email, autofocus: true , :id => 'forgot_pass_input' %>
   </div>
 
