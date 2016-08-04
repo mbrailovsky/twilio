@@ -19,7 +19,7 @@
         <td><%= catalog_item.description %></td>
         <td><%= image_tag catalog_item.image.url(:thumb) %></td>
         <td><%= number_to_currency catalog_item.price_in_dollars %></td>
-        <td><input type="number" name="quantity" min="1" max="99"></td>
+        <td><input type="number" name="quantity" min="1" max="99" aria-label="quantity"></td>
 
       </tr>
   <% end %>

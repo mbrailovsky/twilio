@@ -1,13 +1,13 @@
-<h2>Log in</h2>
+<h1>Log in</h1>
 <hr>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, 'for'=> 'login_email_field'  %><br />
     <%= f.email_field :email, autofocus: true, :id => 'login_email_field' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, 'for'=> 'login_password_field' %><br />
     <%= f.password_field :password, autocomplete: "off", :id => 'login_password_field' %>
   </div>
 
@@ -15,7 +15,7 @@
     <div class="field">
       <div class="row">
         <div class="col-xs-1 no-padding-right"><%= f.check_box :remember_me,  :id => 'login_remember_me_checkbox' %></div>
-        <div class="col-xs-11 padding-left-10"><%= f.label :remember_me %></div>
+        <div class="col-xs-11 padding-left-10"><%= f.label :remember_me , 'for'=> 'login_remember_me_checkbox' %></div>
         </div>
     </div>
   <% end -%>
