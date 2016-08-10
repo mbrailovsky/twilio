@@ -12,7 +12,7 @@ class OrderItem < ApplicationRecord
     if persisted?
       self[:unit_price]
     else
-      catalog_item.price_in_dollars
+      errors.add(:unit_price, "is not valid or is not active.")
     end
   end
 
