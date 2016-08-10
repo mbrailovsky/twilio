@@ -12,7 +12,7 @@ class OrderItem < ApplicationRecord
     if persisted?
       self[:unit_price]
     else
-      catalog_item.price
+      errors.add(:unit_price, "cannot find unit price")
     end
   end
 
