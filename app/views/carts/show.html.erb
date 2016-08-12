@@ -14,10 +14,9 @@
   <% @order_items.each do |oi| %>
       <tr>
         <td><%= io.name %></td>
-        <td><%= io.quantity %></td>
+        <td><input type="number" name="quantity" min="1" max="99"></td>
         <td><%= io.unit_price %></td>
         <td><%= io.total_price %></td>
-        <td><input type="number" name="quantity" min="1" max="99"></td>
       </tr>
   <% end %>
   <tr>
