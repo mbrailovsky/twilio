@@ -14,11 +14,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
-    else
-      Order.new
+  def current_cart
+    if session[:cart_id]
+      @current_cart ||= Carts.find(session[:cart_id])
     end
+    if session[:cart_id].nil?
+      @current_cart = Carts.create!
+      session[:cart_id] = @current_cart.id
+    end
+    @current_cart
   end
 end
