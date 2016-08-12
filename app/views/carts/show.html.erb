@@ -11,23 +11,20 @@
   </thead>
 
   <tbody>
+  <% @order_items.each do |oi| %>
       <tr>
-        <td>Item 1</td>
-        <td><input type="number" name="quantity" min="1" max="99" value="5"></td>
-        <td>$10.00</td>
-        <td>$50.00</td>
+        <td><%= io.name %></td>
+        <td><%= io.quantity %></td>
+        <td><%= io.unit_price %></td>
+        <td><%= io.total_price %></td>
+        <td><input type="number" name="quantity" min="1" max="99"></td>
       </tr>
-      <tr>
-        <td>Item 2</td>
-        <td><input type="number" name="quantity" min="1" max="99" value="2"></td>
-        <td>$20.00</td>
-        <td>$40.00</td>
-      </tr>
+  <% end %>
   <tr>
     <td>Total Cost</td>
     <td></td>
     <td></td>
-    <td>$90.00</td>
+    <td><%= @order_items.sum(:total_price) %></td>
   </tr>
   </tbody>
 
@@ -35,7 +32,7 @@
 </table>
 <br>
 <div class="actions pull-right">
-  <button class="btn-primary btn-add-cart"><%= link_to 'Continue Shopping', catalog_item_path %></button>
+  <button class="btn-primary btn-add-cart">Continue Shopping</button>
   <button class="btn-primary btn-add-cart">Checkout</button>
 </div>
 <br>
