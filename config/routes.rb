@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   get '/health_check', to: redirect('/health_check.html')
+
+  post '/add_to_cart/:catalog_item' => 'carts#add_to_cart', :as => 'add_to_cart'
+
   resources :security_questions
   resources :orders
   resources :catalog_items
