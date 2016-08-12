@@ -1,5 +1,10 @@
 class CartsController < ApplicationController
   def show
-    @order_items = current_order.order_items
+    @carts = current_cart
+  end
+
+  def add_to_cart
+    current_cart.add_item(params[:catalog_item])
+    redirect_to carts_path(current_cart.id)
   end
 end
