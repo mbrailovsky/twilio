@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160717005153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   
-  create_table "Carts", force: :cascade do |t|
+  create_table "carts", force: :cascade do |t|
     t.decimal  "total",      precision: 12, scale: 3
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
