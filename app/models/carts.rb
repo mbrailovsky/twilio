@@ -6,7 +6,7 @@ class Carts < ApplicationRecord
   end
 
   def add_item(catalog_item)
-    item = order_items.where('catalog_item = ?', catalog_item).first
+    item = order_items.where('catalog_item_id = ?', catalog_item).first
     if item
       item.quantity += 1
     end
