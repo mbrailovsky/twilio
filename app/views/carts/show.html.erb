@@ -13,10 +13,10 @@
   <tbody>
   <% @order_items.each do |oi| %>
       <tr>
-        <td><%= io.catalog_item_id %></td>
-        <td><%= io.quantity %></td>
-        <td><%= io.unit_price %></td>
-        <td><%= io.total_price %></td>
+        <td><%= oi.catalog_item_id %></td>
+        <td><%= oi.quantity %></td>
+        <td><%= oi.unit_price %></td>
+        <td><%= oi.total_price %></td>
       </tr>
   <% end %>
   <tr>
