@@ -12,6 +12,14 @@ class OrderItem < ApplicationRecord
       errors.add(:unit_price, "is not valid or is not active.")
     end
   end
+  
+  def quantity
+    :quantity
+  end
+  
+  def catalog_item_id
+    :catalog_item_id
+  end
 
   def total_price
     unit_price * quantity
