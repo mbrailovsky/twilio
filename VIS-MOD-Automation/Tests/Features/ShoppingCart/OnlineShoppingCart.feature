@@ -79,122 +79,123 @@
 		a. Without loggin in, navigate to any of the OSC URLs
 		b. Verify Login page is displayed
 
-Scenario: 001-Login with valid credentials
+Scenario: 001-Register new user with Email Address
 	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
-	When I set the text box using element id "login_email_field" with the value "ethan@putsbox.com"
+	When I click on the link containing the text "Sign up"
+	And I set the text box using element id "user_login_id" with the value "sheridan"
+	And I set the text box using element id "user_email" with the value "sheridan_durgan@putsbox.com"  
+	And I set the text box using element id "user_first_name" with the value "sheridan"
+	And I set the text box using element id "user_last_name" with the value "durgan"
+	And I set the text box using element id "user_street_address" with the value "2600 Tower Oaks Blvd"
+	And I set the text box using element id "user_city" with the value "Rockville"
+	And I set the text box using element id "user_state" with the value "Maryland"
+	And I set the text box using element id "user_zip" with the value "20876"
+	And I set the text box using element id "user_cc_number" with the value "5466809223001601" 
+	And I set the text box using element id "user_cvv" with the value "999"
+	And I set the text box using element id "user_cc_exp_date" with the value "01/2020"  
+	And I set the text box using element id "user_password" with the value "Autotest123!"
+	And I set the text box using element id "user_password_confirmation" with the value "Autotest123!"
+	# And I select the drop down text "*** Any Security Question ****" using element id ""
+	And I set the text box using element id "user_security_answer" with the value "circular"
+	And I click on the submit button labeled "Sign up"
+	Then the page contains the text "Catalog"
+
+Scenario: 002-Login with valid credentials
+	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
+	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
 	And I set the text box using element id "login_password_field" with the value "Autotest123!"
 	And I click on the button using element id "login_submit_button"
 	Then the page title is "ShoppingDemo"
 	And the page contains the text "Catalog"
 
-Scenario: 002-Logout
+Scenario: 003-Logout
 	Given the page is loaded
 	When I click on the link containing the text "Logout"
 	Then the page contains the text "You need to sign in or sign up before continuing."
 
-Scenario: 003- Login Validation - Empty User ID & Password
+Scenario: 004- Login Validation - Empty User ID & Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value " "
-	When I set the text box using element id "login_password_field" with the value " "
-	And I click on the button using element id "login_submit_button"  # Login button
+	And I set the text box using element id "login_password_field" with the value " "
+	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
-Scenario: 004- Login Validation - Invalid User ID & Invalid Password
+Scenario: 005- Login Validation - Invalid User ID & Invalid Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value "invalidUserId"
-	When I set the text box using element id "login_password_field" with the value "invalidPassword"
-	And I click on the button using element id "login_submit_button"  # Login button
-	Then the page contains the text "Invalid Email or password."
-
-Scenario: 005- Login Validation - Valid User ID & Invalid Password
-	Given the page is loaded
-	When I set the text box using element id "login_email_field" with the value "ethan@putsbox.com"
 	And I set the text box using element id "login_password_field" with the value "invalidPassword"
 	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
-Scenario: 006- Login Validation - Invalid User ID & Valid Password
+Scenario: 006- Login Validation - Valid User ID & Invalid Password
 	Given the page is loaded
-	When I set the text box using element id "login_email_field" with the value "invalidUserId"
-	When I set the text box using element id "login_password_field" with the value "Autotest123!"
-	And I click on the button using element id "login_submit_button"  # Login button
+	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
+	And I set the text box using element id "login_password_field" with the value "invalidPassword"
+	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
-Scenario: 007- Succesful Login - Valid User ID & Password
+Scenario: 007- Login Validation - Invalid User ID & Valid Password
 	Given the page is loaded
-	When I set the text box using element id "login_email_field" with the value "ethan@putsbox.com"
-	When I set the text box using element id "login_password_field" with the value "Autotest123!"
-	And I click on the button using element id "login_submit_button"  # Login button
-	Then the page title is "ShoppingDemo"  # Product Catalog page title
-	And I close the current page  # close browser
+	When I set the text box using element id "login_email_field" with the value "invalidUserId"
+	And I set the text box using element id "login_password_field" with the value "Autotest123!"
+	And I click on the button using element id "login_submit_button"
+	Then the page contains the text "Invalid Email or password."
 
-Scenario: 01-Register new user with Email Address
-	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
-	When I click on the link containing the text ""  # Registration Link
-	And I set the text box using element id "" with the value "Ravi"
-	And I set the text box using element id "" with the value "Radha-EmailAddr"
-	And I set the text box using element id "" with the value "ravi.radhakrishnan@variq.com"   # Email Addr
-	And I set the text box using element id "" with the value "mypasswd$0"
-	And I set the text box using element id "" with the value "2600 Tower Oaks Blvd"
-	And I set the text box using element id "" with the value "Rockville"
-	And I set the text box using element id "" with the value "Maryland"
-	And I set the text box using element id "" with the value "20876"
-	And I set the text box using element id "" with the value "5466809223001601" # CC Number
-	And I set the text box using element id "" with the value "12"  # CC Exp Month
-	And I set the text box using element id "" with the value "19"  # CC Exp Year
-	And I set the text box using element id "" with the value "216" # CC Sec Code
-	And I select the drop down text "*** Any Security Question ****" using element id ""
-	And I click on the button using element id ""  # Register Button
-	Then the page title is ""  # Product Catalog page title
-	And I click on the link containing the text ""  # LOG OUT
-
+Scenario: 008- Succesful Login - Valid User ID & Password
+	Given the page is loaded
+	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
+	And I set the text box using element id "login_password_field" with the value "Autotest123!"
+	And I click on the button using element id "login_submit_button"
+	Then the page title is "ShoppingDemo"
+	And I close the current page
+	
 Scenario: 02- Duplicate Email Address
 	Given I navigate to the url "" titled ""
-	When I click on the link containing the text ""  # Registration Link
+	When I click on the link containing the text "" 
 	And I set the text box using element id "" with the value "Ravi"
 	And I set the text box using element id "" with the value "Radha-EmailAddr"
-	And I set the text box using element id "" with the value "ravi.radhakrishnan@variq.com"   # Email Addr Duplicate
+	And I set the text box using element id "" with the value "ravi.radhakrishnan@variq.com"   
 	And I set the text box using element id "" with the value "mypasswd$0"
 	And I set the text box using element id "" with the value "2600 Tower Oaks Blvd"
 	And I set the text box using element id "" with the value "Rockville"
 	And I set the text box using element id "" with the value "Maryland"
 	And I set the text box using element id "" with the value "20876"
-	And I set the text box using element id "" with the value "5466809223001601" # CC Number
-	And I set the text box using element id "" with the value "12"  # CC Exp Month
-	And I set the text box using element id "" with the value "19"  # CC Exp Year
-	And I set the text box using element id "" with the value "216" # CC Sec Code
+	And I set the text box using element id "" with the value "5466809223001601" 
+	And I set the text box using element id "" with the value "12"  
+	And I set the text box using element id "" with the value "19"  
+	And I set the text box using element id "" with the value "216" 
 	And I select the drop down text "*** Any Security Question ****" using element id ""
-	And I click on the button using element id ""  # Register Button
-	Then the page title is ""  # Duplicate Email Address error page
+	And I click on the button using element id ""  
+	Then the page title is ""  
 	And the page contains the text ""
-	And I close the current page  # Close browser
+	And I close the current page  
 
 Scenario: 03-Register new user with User ID
 	Given I navigate to the url "" titled ""
-	When I click on the link containing the text ""  # Registration Link
+	When I click on the link containing the text ""  
 	And I set the text box using element id "" with the value "Ravi"
 	And I set the text box using element id "" with the value "Radha-UserID"
-	And I set the text box using element id "" with the value "ravi.radhakrishnan"  # User ID
+	And I set the text box using element id "" with the value "ravi.radhakrishnan"  
 	And I set the text box using element id "" with the value "mypasswd$0"
 	And I set the text box using element id "" with the value "2600 Tower Oaks Blvd"
 	And I set the text box using element id "" with the value "Rockville"
 	And I set the text box using element id "" with the value "Maryland"
 	And I set the text box using element id "" with the value "20876"
-	And I set the text box using element id "" with the value "5466809223001601" # CC Number
-	And I set the text box using element id "" with the value "12"  # CC Exp Month
-	And I set the text box using element id "" with the value "19"  # CC Exp Year
-	And I set the text box using element id "" with the value "216" # CC Sec Code
+	And I set the text box using element id "" with the value "5466809223001601" 
+	And I set the text box using element id "" with the value "12"  
+	And I set the text box using element id "" with the value "19"  
+	And I set the text box using element id "" with the value "216" 
 	And I select the drop down text "*** Any Security Question ****" using element id ""
-	And I click on the button using element id ""  # Register Button
-	Then the page title is ""  # Product Catalog page title
-	And I click on the link containing the text ""  # LOG OUT
+	And I click on the button using element id ""  
+	Then the page title is ""  
+	And I click on the link containing the text ""  
 
 Scenario: 04- Duplicate User ID
 	Given I navigate to the url "" titled ""
-	When I click on the link containing the text ""  # Registration Link
+	When I click on the link containing the text ""  
 	And I set the text box using element id "" with the value "Ravi"
 	And I set the text box using element id "" with the value "Radha-UserId"
-	And I set the text box using element id "" with the value "ravi.radhakrishnan"   # User ID Duplicate
+	And I set the text box using element id "" with the value "ravi.radhakrishnan"   
 	And I set the text box using element id "" with the value "mypasswd$0"
 	And I set the text box using element id "" with the value "2600 Tower Oaks Blvd"
 	And I set the text box using element id "" with the value "Rockville"
