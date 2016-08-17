@@ -1,2 +1,38 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>My Shopping Cart</h1>
+<hr>
+<table class="table-hover">
+  <thead>
+  <tr>
+    <th>Catalog Item</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @order_items.each do |oi| %>
+      <tr>
+        <td><%= oi.catalog_item_id %></td>
+        <td><%= oi.quantity %></td>
+        <td><%= oi.unit_price %></td>
+        <td><%= oi.total_price %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td>Total Cost</td>
+    <td></td>
+    <td></td>
+    <td><%= @order_items.sum(:total_price) %></td>
+  </tr>
+  </tbody>
+
+
+</table>
+<br>
+<div class="actions pull-right">
+  <button class="btn-primary btn-add-cart"><%= link_to 'Continue Shopping', root_path %></button>
+  <button class="btn-primary btn-add-cart">Proceed to Checkout</button>
+</div>
+<br>
+<br>
