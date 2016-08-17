@@ -74,53 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\CommonFeatureSteps.cs" />
-    <Compile Include="Features\Enrollment\AgentNewClientEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AgentNewClientEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\AgentNewClientWebServicesEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AgentNewClientWebServicesEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\CorporateAdminEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CorporateAdminEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\EmployerAgentEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployerAgentEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\EmployerOnlyEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployerOnlyEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\Enrollment.cs" />
-    <Compile Include="Features\Enrollment\EmployerAgentWebServicesEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployerAgentWebServicesEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\EmployerOnlyWebServicesEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployerOnlyWebServicesEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Enrollment\CorporateEmployerEnrollment.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CorporateEmployerEnrollment.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\SaveCaseCheck\SaveCaseCheckFeatureSteps.cs" />
-    <Compile Include="Features\SaveCaseCheck\SaveCaseCheck.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SaveCaseCheck.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\ShoppingCart\OnlineShoppingCart.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,41 +86,6 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Features\Enrollment\AgentNewClientEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-    </None>
-    <None Include="Features\Enrollment\CorporateAdminEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CorporateAdminEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\EmployerOnlyEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>EmployerOnlyEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\AgentNewClientWebServicesEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AgentNewClientWebServicesEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\EmployerOnlyWebServicesEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>EmployerOnlyWebServicesEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\EmployerAgentEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>EmployerAgentEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\EmployerAgentWebServicesEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>EmployerAgentWebServicesEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Enrollment\CorporateEmployerEnrollment.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CorporateEmployerEnrollment.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\SaveCaseCheck\SaveCaseCheck.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SaveCaseCheck.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\ShoppingCart\OnlineShoppingCart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -196,11 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\UploadFiles\Client_MOU_Signature.gif" />
-    <Content Include="Features\Enrollment\UploadFiles\Client_MOU_Signature.gif" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\SmokeTest\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\Shadow.nuget.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
