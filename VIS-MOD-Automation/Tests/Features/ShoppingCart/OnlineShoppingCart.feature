@@ -79,6 +79,7 @@
 		a. Without loggin in, navigate to any of the OSC URLs
 		b. Verify Login page is displayed
 
+		@ignore
 Scenario: 001-Register new user with Email Address
 	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
 	When I click on the link containing the text "Sign up"
@@ -101,18 +102,20 @@ Scenario: 001-Register new user with Email Address
 	Then the page contains the text "Catalog"
 
 Scenario: 002-Login with valid credentials
-	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
-	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
+	Given I navigate to the url "http://qa01.cloud.capitissolutions.com/users/sign_in" titled "ShoppingDemo"
+	When I set the text box using element id "login_email_field" with the value "sheridan_durgan@putsbox.com"
 	And I set the text box using element id "login_password_field" with the value "Autotest123!"
 	And I click on the button using element id "login_submit_button"
 	Then the page title is "ShoppingDemo"
 	And the page contains the text "Catalog"
-
+	
 Scenario: 003-Logout
 	Given the page is loaded
 	When I click on the link containing the text "Logout"
 	Then the page contains the text "You need to sign in or sign up before continuing."
+	And I close the current page
 
+	@ignore
 Scenario: 004- Login Validation - Empty User ID & Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value " "
@@ -120,6 +123,7 @@ Scenario: 004- Login Validation - Empty User ID & Password
 	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
+	@ignore
 Scenario: 005- Login Validation - Invalid User ID & Invalid Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value "invalidUserId"
@@ -127,6 +131,7 @@ Scenario: 005- Login Validation - Invalid User ID & Invalid Password
 	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
+	@ignore
 Scenario: 006- Login Validation - Valid User ID & Invalid Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
@@ -134,6 +139,7 @@ Scenario: 006- Login Validation - Valid User ID & Invalid Password
 	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
+	@ignore
 Scenario: 007- Login Validation - Invalid User ID & Valid Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value "invalidUserId"
@@ -141,6 +147,7 @@ Scenario: 007- Login Validation - Invalid User ID & Valid Password
 	And I click on the button using element id "login_submit_button"
 	Then the page contains the text "Invalid Email or password."
 
+	@ignore
 Scenario: 008- Succesful Login - Valid User ID & Password
 	Given the page is loaded
 	When I set the text box using element id "login_email_field" with the value "clara@putsbox.com"
@@ -149,6 +156,7 @@ Scenario: 008- Succesful Login - Valid User ID & Password
 	Then the page title is "ShoppingDemo"
 	And I close the current page
 	
+	@ignore
 Scenario: 02- Duplicate Email Address
 	Given I navigate to the url "" titled ""
 	When I click on the link containing the text "" 
@@ -170,6 +178,7 @@ Scenario: 02- Duplicate Email Address
 	And the page contains the text ""
 	And I close the current page  
 
+	@ignore
 Scenario: 03-Register new user with User ID
 	Given I navigate to the url "" titled ""
 	When I click on the link containing the text ""  
@@ -190,6 +199,7 @@ Scenario: 03-Register new user with User ID
 	Then the page title is ""  
 	And I click on the link containing the text ""  
 
+	@ignore
 Scenario: 04- Duplicate User ID
 	Given I navigate to the url "" titled ""
 	When I click on the link containing the text ""  
@@ -211,6 +221,7 @@ Scenario: 04- Duplicate User ID
 	And the page contains the text ""
 	And I close the current page  # Close browser
 
+	@ignore
 Scenario Outline: 10- Verify Product Catalog page - Item Name & Price
 	Given the page is loaded
 	When I access the table using element id ""  # Product Catalog table
@@ -229,12 +240,14 @@ Scenario Outline: 10- Verify Product Catalog page - Item Name & Price
 	| 5                | Item 5 |
 	| 5                | 100    |
 
+	@ignore
 Scenario: 11- Product Catalog - Select items and click on Shopping Cart
 	Given the page is loaded
 	# Set Quantity required for required items in Product Catalog
 	And I click on the button using element id ""  # Shopping Cart Button
 	Then the page title is ""  # Shopping Cart page
 
+	@ignore
 Scenario Outline: 12-Verify Shopping Cart 
 	Given the page is loaded
 	When I access the table using element id ""  # Shopping Cart table
@@ -250,6 +263,7 @@ Scenario Outline: 12-Verify Shopping Cart
 	| 2                | 2      |
 	| 2                | 70     |
 
+	@ignore
 Scenario: 13-From Shopping Cart go to Product Catalog Page
 	Given the page is loaded
 	When I click on the button using element id ""  # Return to Product Catalog
@@ -258,6 +272,7 @@ Scenario: 13-From Shopping Cart go to Product Catalog Page
 	And I click on the button using element id ""  # Shopping Cart Button
 	Then the page title is ""  # Shopping Cart page
 
+	@ignore
 Scenario Outline: 14-Shopping Cart Page - Verify final details of product selections
 	Given the page is loaded
 	Then the text box using element id "" contains the value ""  # Total Cost
@@ -275,11 +290,13 @@ Scenario Outline: 14-Shopping Cart Page - Verify final details of product select
 	| 3                | 3      |
 	| 3                | 90     |
 
+	@ignore
 Scenario: 15- Go to Checkout
 	Given the page is loaded
 	When I click on the button using element id ""  # Review Order page
 	Then the page title is ""  # Review Order page
 
+	@ignore
 Scenario Outline: 16- Verify Review Order Page - Item Names, Count, Cost, CC, Shipping Address
 	Given the page is loaded
 	Then the text box using element id "" contains the value ""  # Total Cost
@@ -299,6 +316,7 @@ Scenario Outline: 16- Verify Review Order Page - Item Names, Count, Cost, CC, Sh
 	| 3                | 3      |
 	| 3                | 90     |
 
+	@ignore
 Scenario: 17- Click on Submit Order and verify Confirmation Page
 	Given the page is loaded
 	When I click on the button using element id ""  # Submit Order button
