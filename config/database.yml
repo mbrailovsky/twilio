@@ -38,9 +38,9 @@ test:
 
 staging:
   <<: *default
-  database: shopping_demo
+  database: shopping_demo_qa
   host: devdb01.cqbufnsbkdwl.us-east-1.rds.amazonaws.com
-  username: shopping_demo_dba
+  username: shopping_demo_qa
   password: <%= ENV['SHOPPING-DEMO_DATABASE_PASSWORD'] %>
 
 production:
