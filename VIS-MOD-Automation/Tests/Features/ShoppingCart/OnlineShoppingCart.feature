@@ -79,32 +79,31 @@
 		a. Without loggin in, navigate to any of the OSC URLs
 		b. Verify Login page is displayed
 
-		@ignore
 Scenario: 001-Register new user with Email Address
-	Given I navigate to the url "http://54.174.90.169:8080" titled "ShoppingDemo"
+	Given I navigate to the url "http://qa01.cloud.capitissolutions.com/users/sign_in" titled "ShoppingDemo"
 	When I click on the link containing the text "Sign up"
-	And I set the text box using element id "user_login_id" with the value "sheridan"
-	And I set the text box using element id "user_email" with the value "sheridan_durgan@putsbox.com"  
-	And I set the text box using element id "user_first_name" with the value "sheridan"
-	And I set the text box using element id "user_last_name" with the value "durgan"
+	And I set the text box using element id "user_login_id" with the value "olaf"
+	And I set the text box using element id "user_email" with the value "olaf_stark@putsbox.com"  
+	And I set the text box using element id "user_first_name" with the value "olaf"
+	And I set the text box using element id "user_last_name" with the value "stark"
 	And I set the text box using element id "user_street_address" with the value "2600 Tower Oaks Blvd"
 	And I set the text box using element id "user_city" with the value "Rockville"
 	And I set the text box using element id "user_state" with the value "Maryland"
 	And I set the text box using element id "user_zip" with the value "20876"
-	And I set the text box using element id "user_cc_number" with the value "5466809223001601" 
+	And I set the text box using element id "user_cc_number" with the value "1234809223001601" 
 	And I set the text box using element id "user_cvv" with the value "999"
 	And I set the text box using element id "user_cc_exp_date" with the value "01/2020"  
 	And I set the text box using element id "user_password" with the value "Autotest123!"
 	And I set the text box using element id "user_password_confirmation" with the value "Autotest123!"
 	# And I select the drop down text "*** Any Security Question ****" using element id ""
-	And I set the text box using element id "user_security_answer" with the value "circular"
+	And I set the text box using element id "user_security_answer" with the value "ruby"
 	And I click on the submit button labeled "Sign up"
-	Then the page contains the text "Catalog"
+	# Then the page contains the text "Catalog"
 
 Scenario: 002-Login with valid credentials
 	Given I navigate to the url "http://qa01.cloud.capitissolutions.com/users/sign_in" titled "ShoppingDemo"
-	When I set the text box using element id "login_email_field" with the value "sheridan_durgan@putsbox.com"
-	And I set the text box using element id "login_password_field" with the value "Autotest123!"
+	When I set the text box using element id "login_email_field" with the value "admin@example.com"
+	And I set the text box using element id "login_password_field" with the value "supersecret"
 	And I click on the button using element id "login_submit_button"
 	Then the page title is "ShoppingDemo"
 	And the page contains the text "Catalog"
